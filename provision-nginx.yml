@@ -1,0 +1,11 @@
+---
+- hosts: docker
+
+  tasks:
+    - name: Baixar e rodar o contêiner Nginx
+      community.docker.docker_container:
+        name: nginx_server
+        image: nginx:latest
+        state: started
+        ports:
+          - "8080:80"
